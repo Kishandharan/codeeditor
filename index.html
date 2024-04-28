@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codify | Live changing HTML, JavaScript compiler</title>
+    <link rel="icon" href="code.svg"> 
+    <style>
+        .htmlcode{
+            font-family: "Source code pro", "Consolas", "Courier new";
+            resize: none;
+            width: 57rem;
+            height: 26rem;
+            font-size: 20px;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: #242425;
+            color: rgb(0, 255, 0);
+        }
+
+        pre{
+            font-family: "Source code pro", "Consolas", "Courier new";
+            color: white;
+            font-size: 20px;
+            user-select: none;
+        }
+
+        .jscode{
+            font-family: "Source code pro", "Consolas", "Courier new";
+            resize: none;
+            width: 59rem;
+            height: 26rem;
+            font-size: 20px;
+            border: 2px solid white;
+            border-radius: 3px;
+            background-color: #242425;
+            color: rgb(0, 255, 0);
+        }
+
+        body{
+            background-color: black;
+        }
+
+        .output{
+            width: 118rem;
+            height: 24rem;
+            border-radius: 3px;
+            background-color: white;
+        }
+
+        i{
+            color: white;
+        }
+
+        label{
+            display: flex;
+            align-items: center;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <pre>                               <span style="text-decoration: underline;">HTML</span>                                                                        <span style="text-decoration: underline;">JavaScript</span></pre>
+    <textarea spellcheck="false" id="html-code" class="htmlcode" oninput="run()" title="HTML code"> 
+    </textarea>
+    <textarea spellcheck="false" id="js-code" class="jscode" oninput="run()" title="JavaScript code">
+    </textarea>
+    <iframe class="output" id="output" title="output"></iframe>
+
+    </div> 
+    <script>
+        let out = document.getElementById("output");       
+        function run(){
+            let htmlcode = document.getElementById("html-code").value;
+            let jscode = document.getElementById("js-code").value;
+            out.contentDocument.body.innerHTML = htmlcode;
+            out.contentWindow.eval(jscode);
+            
+        }
+    </script>       
+</body>
+</html>
